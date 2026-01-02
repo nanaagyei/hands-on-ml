@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: linear-regression
+Version: 0.1.0
+Summary: Linear regression implementation from scratch
+Requires-Python: >=3.8
+Requires-Dist: numpy>=1.20.0
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
