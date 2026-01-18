@@ -10,9 +10,14 @@ linear_regression.egg-info/SOURCES.txt
 linear_regression.egg-info/dependency_links.txt
 linear_regression.egg-info/requires.txt
 linear_regression.egg-info/top_level.txt
+model_selection/__init__.py
+model_selection/cross_validation.py
 preprocessing/__init__.py
 preprocessing/pipeline.py
 preprocessing/scalers.py
+tests/test_cross_validation.py
 tests/test_linear_regression.py
+tests/test_pipeline.py
+tests/test_scalers.py
 utils/__init__.py
 utils/validators.py

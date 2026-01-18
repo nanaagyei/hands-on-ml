@@ -1,3 +1,4 @@
 core
+model_selection
 preprocessing
 utils
