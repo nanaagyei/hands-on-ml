@@ -130,14 +130,14 @@ class RidgeRegression:
 
     def get_params(self):
         """
-        Get the model parameters.
-
+        Get the model initialization parameters (for cloning).
+        
         Returns:
-            dict: Model parameters
+            dict: Model initialization parameters
         """
         return {
-            "coef_": self.coef_,
-            "intercept_": self.intercept_
+            "alpha": self.alpha,
+            "fit_intercept": self.fit_intercept
         }
 
 
@@ -301,14 +301,16 @@ class LassoRegression:
 
     def get_params(self):
         """
-        Get the model parameters.
-
+        Get the model initialization parameters (for cloning).
+        
         Returns:
-            dict: Model parameters
+            dict: Model initialization parameters
         """
         return {
-            "coef_": self.coef_,
-            "intercept_": self.intercept_
+            "alpha": self.alpha,
+            "max_iter": self.max_iter,
+            "tol": self.tol,
+            "fit_intercept": self.fit_intercept
         }
 
 
@@ -462,12 +464,15 @@ class ElasticNetRegression:
     
     def get_params(self):
         """
-        Get the model parameters.
-
+        Get the model initialization parameters (for cloning).
+        
         Returns:
-            dict: Model parameters
+            dict: Model initialization parameters
         """
         return {
-            "coef_": self.coef_,
-            "intercept_": self.intercept_
+            "alpha": self.alpha,
+            "l1_ratio": self.l1_ratio,
+            "fit_intercept": self.fit_intercept,
+            "max_iter": self.max_iter,
+            "tol": self.tol
         }
