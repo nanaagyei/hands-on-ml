@@ -1,0 +1,28 @@
+[
+  {
+    "timestamp": "2026-01-24T17:00:28.774899",
+    "drift_detected": false,
+    "mean_psi": 0.05,
+    "max_psi": 0.12,
+    "n_drifted": 0,
+    "psi_scores": {
+      "area": 0.08,
+      "Overall.Qual": 0.05,
+      "Neighborhood": 0.12,
+      "Year.Built": 0.03
+    }
+  },
+  {
+    "timestamp": "2026-01-24T17:26:48.762032",
+    "drift_detected": false,
+    "mean_psi": 0.05,
+    "max_psi": 0.12,
+    "n_drifted": 0,
+    "psi_scores": {
+      "area": 0.08,
+      "Overall.Qual": 0.05,
+      "Neighborhood": 0.12,
+      "Year.Built": 0.03
+    }
+  }
+]
