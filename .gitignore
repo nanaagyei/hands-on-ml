@@ -1,3 +1,34 @@
 venv/
 **__pycache__**
 **.ipynb_checkpoints**
+
+#egg-info
+*.egg-info
+
+.vscode
+.DS_Store
+**/.DS_Store
+*.log
+
+# Local secrets and env (never commit)
+.env
+.env.*
+!.env.example
+
+# Keys and certificates
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# Fraud dashboard build output (copy to serving/static/dashboard for Flask)
+fraud_detection_project/dashboard/dist/
+fraud_detection_project/src/serving/static/dashboard/
+
+# Fraud project — raw Kaggle data is large (~150MB) and must not live in git; artifacts are reproducible
+fraud_detection_project/data/raw/*.csv
+fraud_detection_project/data/processed/*.npy
+fraud_detection_project/models/*.pkl
+
+# Dashboard dependencies (if ever hoisted to repo root)
+node_modules/

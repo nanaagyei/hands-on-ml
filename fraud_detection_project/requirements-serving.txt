@@ -1,0 +1,4 @@
+# Run the fraud detection API + operator dashboard (after dashboard build).
+#   pip install -r fraud_detection_project/requirements-serving.txt
+flask>=3.0.0
+numpy>=1.20.0
