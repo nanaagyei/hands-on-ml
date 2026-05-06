@@ -4,14 +4,14 @@ A production-grade fraud detection system built from scratch, demonstrating the 
 
 ## What This Project Covers
 
-| Phase | What we built | Key concepts |
-|---|---|---|
-| Math | Derivation of SVM primal/dual | Lagrange multipliers, KKT conditions, kernel trick |
-| Implementation | `LinearSVM` + `KernelSVM` via SMO | Subgradient descent, Sequential Minimal Optimization |
-| Data | Credit card fraud EDA + preprocessing | Class imbalance, cyclic encoding, distribution mismatch |
-| Training | LinearSVC + RBF approximation | Hyperparameter search, AUC-PR, threshold tuning |
-| Serving | `FraudPredictor` + Flask API | Feature pipeline, PSI drift monitoring |
-| Dashboard | Vite + React operator UI | Real-time scoring, batch upload, drift visualization |
+| Phase          | What we built                         | Key concepts                                            |
+| -------------- | ------------------------------------- | ------------------------------------------------------- |
+| Math           | Derivation of SVM primal/dual         | Lagrange multipliers, KKT conditions, kernel trick      |
+| Implementation | `LinearSVM` + `KernelSVM` via SMO     | Subgradient descent, Sequential Minimal Optimization    |
+| Data           | Credit card fraud EDA + preprocessing | Class imbalance, cyclic encoding, distribution mismatch |
+| Training       | LinearSVC + RBF approximation         | Hyperparameter search, AUC-PR, threshold tuning         |
+| Serving        | `FraudPredictor` + Flask API          | Feature pipeline, PSI drift monitoring                  |
+| Dashboard      | Vite + React operator UI              | Real-time scoring, batch upload, drift visualization    |
 
 ---
 
@@ -34,6 +34,7 @@ fraud_detection_project/
 │   ├── 01_eda.py                      ← Data exploration
 │   ├── 02_data_cleaning.py            ← Feature engineering + preprocessing
 │   ├── 03_modeling_v2.py              ← Training + hyperparameter search
+│   ├── generate_figures.py            ← Notebook PNGs (SVM + feature engineering)
 │   └── figures/
 │
 ├── src/
@@ -50,7 +51,7 @@ fraud_detection_project/
 │   ├── public/samples/
 │   │   ├── legit.json
 │   │   └── fraud.json
-│   ├── vite.config.js
+│   ├── vite.config.ts
 │   └── README.md
 │
 └── requirements-serving.txt
@@ -103,13 +104,13 @@ Model saved to `fraud_detection_project/models/svm_fraud_model_v2.pkl`.
 
 Expected results at the 80% recall operating point:
 
-| Metric | Value |
-|---|---|
-| AUC-PR | 0.806 |
-| AUC-ROC | 0.987 |
-| Recall | 80.6% |
-| Precision | 81.4% |
-| False positives per 57k txns | 18 |
+| Metric                       | Value |
+| ---------------------------- | ----- |
+| AUC-PR                       | 0.806 |
+| AUC-ROC                      | 0.987 |
+| Recall                       | 80.6% |
+| Precision                    | 81.4% |
+| False positives per 57k txns | 18    |
 
 ### 4. Run integration tests
 
@@ -140,9 +141,11 @@ Open `http://localhost:5173`.
 ## API Reference
 
 ### `GET /health`
+
 Liveness probe. Returns 200 if model is loaded.
 
 ### `GET /model/info`
+
 Model metadata: feature names, threshold, test metrics.
 
 ### `POST /predict`
@@ -246,11 +249,11 @@ Validated against sklearn's `SVC` — 0.0% accuracy difference on test data.
 
 The `ModelMonitor` class tracks score distribution drift using **Population Stability Index (PSI)**:
 
-| PSI | Interpretation | Action |
-|---|---|---|
-| < 0.10 | No drift | None |
-| 0.10–0.20 | Moderate drift | Investigate |
-| ≥ 0.20 | Significant drift | Retrain |
+| PSI       | Interpretation    | Action      |
+| --------- | ----------------- | ----------- |
+| < 0.10    | No drift          | None        |
+| 0.10–0.20 | Moderate drift    | Investigate |
+| ≥ 0.20    | Significant drift | Retrain     |
 
 Access via `GET /monitor/status` or the dashboard's Monitoring tab.
 
