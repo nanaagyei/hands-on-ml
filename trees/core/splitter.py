@@ -14,7 +14,7 @@ an empty child / violate min_samples_leaf).
 from dataclasses import dataclass
 import numpy as np
 from typing import Optional
-from core.impurity import gini, entropy, mse
+from .impurity import gini, entropy, mse
 
 @dataclass
 class Split:
